@@ -18,6 +18,7 @@ sudo apt-get install qemu
 - sudo mkdir -p dev proc sys etc/init.d
 - cp ../rcS etc/init.d/
 - cp ../fstab etc/
+- cp ../profile etc/
 
 # busybox setup
 - wget http://busybox.net/downloads/busybox-1.25.0.tar.bz2
@@ -30,7 +31,7 @@ sudo apt-get install qemu
 - sudo umount ../rootfs
 
 # start kernel
-- qemu-system-x86_64 -kernel linux-4.7/arch/x86_64/boot/bzImage -hda rootfs.img -append "root=/dev/sda init=/sbin/init console=ttyS0" -nographic
+- qemu-system-x86_64 -m 128 -kernel linux-4.7/arch/x86_64/boot/bzImage -hda rootfs.img -append "root=/dev/sda init=/sbin/init console=ttyS0" -nographic
 
 # keys for qemu
 - C-a+x       - exit qemu
