@@ -8,17 +8,19 @@ sudo apt-get install qemu
 - cd linux-4.7
 - make defconfig
 - make -j 10
+- cd ..
 
 # make ramfs
-- dd if=/dev/zero of=rootfs.img bs=1M count=10
-- mkfs.ext4 rootfs.img
+- dd if=/dev/zero of=rootfs.img bs=1M count=16
+- mkfs.ext4 -F rootfs.img
 - mkdir rootfs
 - sudo mount -t ext4 -o loop rootfs.img rootfs
 - cd rootfs
 - sudo mkdir -p dev proc sys etc/init.d
-- cp ../rcS etc/init.d/
-- cp ../fstab etc/
-- cp ../profile etc/
+- sudo cp ../rcS etc/init.d/
+- sudo cp ../fstab etc/
+- sudo cp ../profile etc/
+- cd ..
 
 # busybox setup
 - wget http://busybox.net/downloads/busybox-1.25.0.tar.bz2
@@ -27,8 +29,9 @@ sudo apt-get install qemu
 - cd busybox-1.25.0
 - make busybox_qemu_defconfig
 - make -j 10
-- make install CONFIG_PREFIX=../rootfs/
+- sudo make install CONFIG_PREFIX=../rootfs
 - sudo umount ../rootfs
+- cd ..
 
 # start kernel
 - qemu-system-x86_64 -m 128 -kernel linux-4.7/arch/x86_64/boot/bzImage -hda rootfs.img -append "root=/dev/sda init=/sbin/init console=ttyS0" -nographic
