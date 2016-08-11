@@ -1,5 +1,7 @@
 ########################################################
 # WHY
+This project is used for helping kernel engineer or hobbyist to develop kernel code on PC.
+I hope it can help you.
 
 ## install qemu
 ```
