@@ -3,7 +3,7 @@
 sudo apt-get install qemu
 
 # download kernel src and build
-wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.7.tar.xz
+wget https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.7.tar.xz <br>
 tar xvf linux-4.7.tar.xz
 cd linux-4.7
 make defconfig
