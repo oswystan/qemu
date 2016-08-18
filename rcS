@@ -1,3 +1,4 @@
 #! /bin/sh
 
 /bin/mount -a
+mount -o remount,rw / 
