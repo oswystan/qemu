@@ -2,6 +2,7 @@
 # WHY
 > This project is used for helping kernel engineer or hobbyist to develop kernel code on PC.
 > I hope it can help you.
+> I have run these commands on ubuntu14.04. It does not need graphic UI. Only command line is OK.
 
 ## install qemu
 ```
